@@ -196,26 +196,46 @@ var ministryForeignAffairs = function(p){
                 }
 
                 //TODO: insert half circle
+                function halfCircleOpenTop(){
+                    p.fill(lineCollor)
+                    // p.strokeWeight(3)
+                    p.arc(startOfTileX+tileWidth/2,startOfTileX,tileWidth, tileWidth,p.PI*2,p.PI)
+                }
+
+                function halfCircleOpenBottom(){
+                    p.fill(lineCollor)
+                    // p.strokeWeight(3)
+                    
+                    p.arc(startOfTileX-tileWidth/2,startOfTileY,tileWidth, tileWidth,p.PI,p.PI*4)
+                }
+
+                function otherHalfCircle(){
+                    p.fill(lineCollor)
+                    p.arc(startOfTileX-tileWidth/2,startOfTileX,tileWidth, tileWidth,p.PI*2,p.PI)
+                }
+
+
 
                 var randomShape = Math.floor(Math.random() * 7)
 
                 if(randomShape === 0){
-                    squareTopLeft() 
+                    halfCircleOpenBottom()
+                    // squareTopLeft() 
                 }
                 else if(randomShape === 1){
-                    squareTopRight()
+                    // squareTopRight()
                 }
                 else if(randomShape === 2){
-                    squareBottomLeft()
+                    // squareBottomLeft()
                 }
                 else if(randomShape === 3){
-                    squareBottomRight()
+                    // squareBottomRight()
                 }
                 else if(randomShape === 4){
-                    verticalLine()
+                    // verticalLine()
                 }
                 else if(randomShape === 5){
-                    horizontalLine()
+                    // horizontalLine()
                 }
                 else{
                     //leave square blank
