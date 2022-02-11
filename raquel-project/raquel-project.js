@@ -63,14 +63,16 @@ var armedForcesHospital = function(p){
             
             
             if(random === 0){ 
-                let colorDarkBlueSquare = p.color(39, 8, 160)
+                let colorDarkBlueSquare = p.color(5,17,146)
                 p.fill(colorDarkBlueSquare)
                 p.square(i*tileWidth,j*tileHeight,tileWidth)
             }
             else{
                 var startOfTileX = i*tileWidth;
                 var startOfTileY = j*tileHeight
-                let colorGreenSquare = p.color(94, 222, 43)
+                let colorGreenSquare = p.color(7,112,16)
+
+        
                 p.fill(colorGreenSquare)
                 var greenSquare = p.square(startOfTileX,startOfTileY,tileWidth);
 
@@ -149,7 +151,7 @@ var ministryForeignAffairs = function(p){
     p.draw = function(){
         for(var j = 0; j<tiles;j++){
             for(var i = 0; i<tiles;i++){
-                let colorDarkBlueSquare = p.color(39, 8, 160)
+                let colorDarkBlueSquare = p.color(5,6,169)
                 var lineCollor = p.color(238, 240, 235);
                 p.fill(colorDarkBlueSquare)
                 p.stroke(lineCollor)
