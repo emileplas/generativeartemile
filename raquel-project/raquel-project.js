@@ -150,7 +150,9 @@ var ministryForeignAffairs = function(p){
         for(var j = 0; j<tiles;j++){
             for(var i = 0; i<tiles;i++){
                 let colorDarkBlueSquare = p.color(39, 8, 160)
+                var lineCollor = p.color(238, 240, 235);
                 p.fill(colorDarkBlueSquare)
+                p.stroke(lineCollor)
                 p.square(i*tileWidth,j*tileHeight,tileWidth)
 
                 var startOfTileX = i*tileWidth;
@@ -195,50 +197,66 @@ var ministryForeignAffairs = function(p){
                     p.line(startOfTileX, startOfTileY + tileWidth/2, startOfTileX + tileWidth, startOfTileY + tileWidth/2)
                 }
 
-                //TODO: insert half circle
+                
                 function halfCircleOpenTop(){
                     p.fill(lineCollor)
                     // p.strokeWeight(3)
-                    p.arc(startOfTileX+tileWidth/2,startOfTileX,tileWidth, tileWidth,p.PI*2,p.PI)
+                    p.arc(startOfTileX + (tileWidth/2), startOfTileY,tileWidth,tileWidth,p.radians(0),p.radians(180))
                 }
 
                 function halfCircleOpenBottom(){
                     p.fill(lineCollor)
                     // p.strokeWeight(3)
                     
-                    p.arc(startOfTileX-tileWidth/2,startOfTileY,tileWidth, tileWidth,p.PI,p.PI*4)
+                    p.arc(startOfTileX + (tileWidth/2), startOfTileY+tileWidth,tileWidth,tileWidth,p.radians(180),p.radians(0))
                 }
 
-                function otherHalfCircle(){
+ 
+
+
+                function halfCircleOpenToLeft(){
                     p.fill(lineCollor)
-                    p.arc(startOfTileX-tileWidth/2,startOfTileX,tileWidth, tileWidth,p.PI*2,p.PI)
+                    p.arc(startOfTileX,startOfTileY + (tileWidth/2),tileWidth,tileWidth,p.radians(270),p.radians(90))
+                }
+
+                function halfCircleOpenToRight(){
+                    p.fill(lineCollor)
+                    p.arc(startOfTileX+tileWidth,startOfTileY + (tileWidth/2),tileWidth,tileWidth,p.radians(90),p.radians(270))
                 }
 
 
-
-                var randomShape = Math.floor(Math.random() * 7)
+                //chooses a random shape to fill the tiles. The higher the number n, the higher the change that there are empty tile, and the less busy the tile panel is
+                var n = 20;
+                var randomShape = Math.floor(Math.random() * n)
 
                 if(randomShape === 0){
-                    halfCircleOpenBottom()
-                    // squareTopLeft() 
+                    squareTopLeft() 
                 }
                 else if(randomShape === 1){
-                    // squareTopRight()
+                    squareTopRight()
                 }
                 else if(randomShape === 2){
-                    // squareBottomLeft()
+                    squareBottomLeft()
                 }
                 else if(randomShape === 3){
-                    // squareBottomRight()
+                    squareBottomRight()
                 }
                 else if(randomShape === 4){
-                    // verticalLine()
+                    verticalLine()
                 }
                 else if(randomShape === 5){
-                    // horizontalLine()
+                    horizontalLine()
+                }else if(randomShape === 6){
+                    halfCircleOpenTop()
+                }else if(randomShape === 7){
+                    halfCircleOpenBottom()
+                }else if(randomShape === 8){
+                    halfCircleOpenToLeft()
+                }else if(randomShape === 9){
+                    halfCircleOpenToRight()
                 }
                 else{
-                    //leave square blank
+                    
                 }
 
 
@@ -247,6 +265,8 @@ var ministryForeignAffairs = function(p){
 
     }
 }
+
+
 
 
 var triangleTiles = new p5(triangle,'triangle-div');
